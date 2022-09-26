@@ -2,6 +2,7 @@ import { Body } from "./Body";
 
 export class System{
     bodies: Body[] = [];
+    scale: number = 1;
 
     constructor(bodies: Body[]){
         this.bodies = bodies;
@@ -35,6 +36,20 @@ export class System{
                 } 
             });
         });
+    }
+
+    changeScale(scale: number){
+        this.bodies.forEach((body: Body) => {
+            body.position = Operations.mul(body.position, scale);
+            body.velocity = Operations.mul(body.velocity, scale);
+            body.size *= scale;
+            body.mass *= scale*scale;
+            body.elasticity *= scale;
+        })
+    }
+
+    backToOriginalScale(){
+        this.changeScale(1 / this.scale);
     }
 }
 

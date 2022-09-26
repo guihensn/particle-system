@@ -11,7 +11,7 @@ export class Body{
     position = new Vector2(0,0);
     velocity = new Vector2(0,0);
   
-    private forceField: ForceField = new PassiveField();
+    forceField: ForceField = new PassiveField();
     
     elasticity: number;
 

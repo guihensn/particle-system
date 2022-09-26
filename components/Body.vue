@@ -19,7 +19,7 @@ let background= computed(() => props.body.background);
 <style scoped>
     #body{
         border-radius: 100%;
-
+        border: 3px solid white;
         position: absolute;
 
         top: v-bind(yPos);
